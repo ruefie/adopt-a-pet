@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        max-width: 1200px;
+      }
+      .card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-text {
+        flex: 1;
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Welcome to the Pet Adoption Agency</h1>
+      <p>Here is a list of our available pets:</p>
+      <a href="/addPet" class="btn btn-primary mb-4">Add a Pet</a>
+      <div class="row">
+        <% pets.forEach(pet => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="<%= pet.url %>" class="card-img-top" alt="<%= pet.name %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= pet.name %></h5>
+                <p class="card-text">Age: <%= pet.age %></p>
+                <p class="card-text">Breed: <%= pet.breed %></p>
+                <p class="card-text"><%= pet.description.substring(0,200) %>...</p>
+                <a href="/animals/<%= pet.id %>" class="btn btn-primary mt-auto">View More</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
+      integrity="sha384-pzjw8f+ua7Kw1TIqGkv3A/A+ub6CqgL5sE4s5C7o4+FSVmhZ0Yi2QENaRK/hZSj3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgDHktq3tBphKlN0Eld5JcqQXq1mFYWz95XCF0ARbPPhA7R5jL7"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
